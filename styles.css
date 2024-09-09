@@ -1,4 +1,3 @@
-
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -11,8 +10,20 @@ body {
     position: relative;
 }
 
-.navbar a {
-    float: left;
+.navbar .menu {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+}
+
+.navbar .menu li {
+    margin: 0;
+}
+
+.navbar .menu a {
     display: block;
     color: white;
     text-align: center;
@@ -22,7 +33,7 @@ body {
     transition: background-color 0.3s ease;
 }
 
-.navbar a:hover {
+.navbar .menu a:hover {
     background-color: #575757;
 }
 
@@ -32,43 +43,52 @@ body {
     right: 10px;
     top: 10px;
     cursor: pointer;
-}
-
-.navbar .menu {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
+    font-size: 25px;
+    color: white;
 }
 
 @media screen and (max-width: 768px) {
-    .navbar a {
-        display: none;
-    }
 
-    .navbar a.icon {
-        float: right;
-        display: block;
-        font-size: 25px;
-    }
-
-    .navbar.responsive .menu {
-        flex-direction: column;
-        position: absolute;
-        top: 50px;
-        right: 0;
-        background-color: #333;
-        width: 100%;
-        z-index: 1;
-    }
-
-    .navbar.responsive .menu a {
-        display: block;
-        text-align: left;
+    .navbar .menu a {
         padding: 10px;
         border-top: 1px solid #444;
     }
 
-    .navbar.responsive .menu a:first-child {
+    .navbar .menu a:first-child {
         border-top: none;
+    }
+
+    .navbar .icon {
+        display: flex;
+        position: initial; 
+        text-decoration: none;
+        margin-left: 10px;
+    }
+
+    .navbar .responsive .menu {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .navbar ul{
+        display: flex;
+        flex-direction: column;
+        visibility: hidden;
+    }
+
+    .navbar{
+        display: flex;
+        flex-direction: column;
+        height: 6vh;
+    }
+
+    .navbar.active {
+        height: 100%;
+    }
+    
+    .navbar.active .menu {
+        visibility: visible;
+        flex-direction: column;
+        display: flex;
     }
 }
